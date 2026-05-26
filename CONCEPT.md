@@ -46,12 +46,14 @@ RRA поставляется как несколько репозиториев 
 | Репозиторий | Роль | Slice(ы) |
 |---|---|---|
 | `rationaldev` (этот, мета) | зонтичная концепция, оба критерия, стратегия итераций | — |
-| [`rra-docs`](https://github.com/codemonstersteam/rra-docs) | критерий №2 как самостоятельный продукт: оценка документации L1–L6, четыре JTBD-score | `audit-docs` |
-| [`rra-audit-repo`](https://github.com/codemonstersteam/rra-audit-repo) | критерий №1 (I/O-граница по языкам) + точка входа + отчёт; оркеструет `rra-docs` | `audit-repo`, `audit-iograph`, `audit-report` |
+| [`rra-docs`](https://github.com/codemonstersteam/rra-docs) | **гейт соответствия дисциплине** (докум. сторона): наличие/форма/согласованность артефактов + опц. LLM-тир `--semantic`. Детерминированно, для CI | — (новый) |
+| [`rra-audit-repo`](https://github.com/codemonstersteam/rra-audit-repo) | критерий №1 (I/O-граница по языкам) + точка входа + отчёт; оркеструет `rra-docs-another` | `audit-repo`, `audit-iograph`, `audit-report` |
+| [`rra-docs-another`](https://github.com/codemonstersteam/rra-docs-another) | критерий №2: универсальная оценка качества документации произвольных репо (L1–L6, JTBD, LLM) | `audit-docs` |
 
 Концепция и план разработки каждого компонента — в его `CONCEPT.md` / `PLAN.md`.
-`rra-audit-repo` вызывает `rra-docs` для критерия №2 и делит с ним источник
-истины по сверке «код ↔ спецификация» (проход C критерия №1 = слой L6b критерия №2).
+`rra-audit-repo` вызывает `rra-docs-another` для критерия №2. Гейт `rra-docs` и
+проход C критерия №1 делят источник истины — один `contracts-graph.md` (сверка
+«дока ↔ дока» в гейте, «дока ↔ код» в `rra-audit-repo`).
 
 ---
 
