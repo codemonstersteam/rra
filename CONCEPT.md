@@ -38,6 +38,23 @@ Go, Java, Python, TypeScript. Каждый поддерживается отде
 
 ---
 
+## Репозитории продукта
+
+RRA поставляется как несколько репозиториев под
+[github.com/codemonstersteam](https://github.com/codemonstersteam/):
+
+| Репозиторий | Роль | Slice(ы) |
+|---|---|---|
+| `rationaldev` (этот, мета) | зонтичная концепция, оба критерия, стратегия итераций | — |
+| [`rra-docs`](https://github.com/codemonstersteam/rra-docs) | критерий №2 как самостоятельный продукт: оценка документации L1–L6, четыре JTBD-score | `audit-docs` |
+| [`rra-audit-repo`](https://github.com/codemonstersteam/rra-audit-repo) | критерий №1 (I/O-граница по языкам) + точка входа + отчёт; оркеструет `rra-docs` | `audit-repo`, `audit-iograph`, `audit-report` |
+
+Концепция и план разработки каждого компонента — в его `CONCEPT.md` / `PLAN.md`.
+`rra-audit-repo` вызывает `rra-docs` для критерия №2 и делит с ним источник
+истины по сверке «код ↔ спецификация» (проход C критерия №1 = слой L6b критерия №2).
+
+---
+
 ## Критерий №1 — отделение I/O от бизнес-логики
 
 Три последовательных прохода. Каждый следующий дороже, но точнее.
