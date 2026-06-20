@@ -22,7 +22,9 @@
 
 ---
 
-## 1. Slice `audit-docs` — обособленный модуль оценки документации
+## 1. Slice `audit-docs` — обособленный модуль оценки документации — ✅ поставлено как `rra-docs-another`
+
+**Статус.** Реализовано отдельным репозиторием [`rra-docs-another`](https://github.com/codemonstersteam/rra-docs-another): пайплайн **L1/L3/L4/L5/L6a** в main (Option A — одна добыча входа + листья `Evaluate`). Смягчён гейт L5 (`hasDocs` вместо short-circuit; FAIL L4 кэпит L5 до PARTIAL — ADR 0004). **Открыто, опционально:** L2 `style` отложен в TBD (внешние линтеры не тянем; состав L2 проектируем от JTBD); L6c `drift --semantic` — follow-up за флагом.
 
 **Цель.** Дать ценность на любом репозитории без поддержки конкретных языков. Шестислойная оценка по `CONCEPT.md` критерий №2; нормативные источники — `concept-docs-readability.md` (L1–L3).
 
