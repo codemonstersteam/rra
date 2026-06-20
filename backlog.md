@@ -141,6 +141,14 @@
 
 ---
 
+## Заметки по инфраструктуре
+
+- **CI для `rra-docs` и `rra-audit-repo`** — завести при старте реализации (сейчас в
+  них только доки, Go-кода нет). Образец — `rra-docs-another/.github/workflows/ci.yml`:
+  джоб `build` (gofmt / vet / go test) + джоб `component-tests` (docker compose →
+  `component-tests/scripts/run-tests.sh`). Копировать, когда появятся `go.mod` и
+  компонентные сценарии слайса.
+
 ## Принципы работы с этим backlog
 
 - Каждая эпопея → разложить на тикеты по slice-ам **до начала** работы. Тикет не стартует без `intent.md` слайса.
